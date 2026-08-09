@@ -1,4 +1,6 @@
 node_modules/
+dist/
+ha-person-card.js
 *.log
 .DS_Store
 coverage/
