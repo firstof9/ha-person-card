@@ -24,7 +24,7 @@
     "lit": "^3.1.2"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.28.1",
     "happy-dom": "^20.11.2",
     "typescript": "^5.4.5",
     "vitest": "^4.1.10"
