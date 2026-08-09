@@ -1,0 +1,96 @@
+name-template: '$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
+version-template: '$MAJOR.$MINOR.$PATCH'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+sort-direction: ascending
+
+categories:
+  - title: '✨ Enhancements'
+    labels:
+      - 'enhancement'
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+      - 'feat'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bug'
+  - title: '⚡ Performance'
+    labels:
+      - 'performance'
+  - title: '📖 Documentation'
+    collapse-after: 1
+    labels:
+      - 'docs'
+      - 'documentation'
+  - title: '🧰 Maintenance'
+    collapse-after: 1
+    labels:
+      - 'chore'
+      - 'refactor'
+      - 'ci'
+  - title: '📦 Dependencies'
+    collapse-after: 1
+    labels:
+      - 'dependencies'
+
+autolabeler:
+  - label: 'feature'
+    title:
+      - '/^feat(\(.+\))?:/i'
+  - label: 'fix'
+    title:
+      - '/^fix(\(.+\))?:/i'
+  - label: 'documentation'
+    title:
+      - '/^docs(\(.+\))?:/i'
+  - label: 'chore'
+    title:
+      - '/^chore(\(.+\))?:/i'
+  - label: 'refactor'
+    title:
+      - '/^refactor(\(.+\))?:/i'
+  - label: 'ci'
+    title:
+      - '/^ci(\(.+\))?:/i'
+      - '/^build(\(.+\))?:/i'
+  - label: 'performance'
+    title:
+      - '/^perf(\(.+\))?:/i'
+  - label: 'chore'
+    title:
+      - '/^style(\(.+\))?:/i'
+      - '/^test(\(.+\))?:/i'
+  - label: 'dependencies'
+    title:
+      - '/^build\(deps\)(\(.+\))?:/i'
+      - '/^deps(\(.+\))?:/i'
+
+version-resolver:
+  major:
+    labels:
+      - 'breaking-change'
+      - 'breaking change'
+  minor:
+    labels:
+      - 'feature'
+      - 'enhancement'
+  patch:
+    labels:
+      - 'bug'
+      - 'fix'
+      - 'performance'
+      - 'refactor'
+      - 'style'
+      - 'build'
+      - 'chore'
+      - 'documentation'
+      - 'ci'
+      - 'test'
+      - 'dependencies'
+  default: patch
+
+template: |
+  ## Changes
+  $CHANGES

@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to upload assets to'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and upload release asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Inject Version
+        run: |
+          VERSION="${{ github.event.inputs.tag || github.event.release.tag_name }}"
+          if [ -z "$VERSION" ]; then
+            VERSION="1.0.0"
+          fi
+          VERSION_CLEAN="${VERSION#v}"
+          sed -i "s/'VERSION'/'$VERSION_CLEAN'/g" src/ha-person-card.ts
+      - run: npm run build
+      - name: Copy bundle to root for release asset
+        run: cp dist/ha-person-card.js ha-person-card.js
+      - name: Upload card bundle
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3.0.2
+        with:
+          files: ha-person-card.js
+          tag_name: ${{ github.event.inputs.tag || github.event.release.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
