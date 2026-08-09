@@ -1,5 +1,6 @@
 {
   "name": "HA Person Card",
   "filename": "ha-person-card.js",
+  "zip_release": true,
   "render_readme": true
 }
