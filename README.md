@@ -1,5 +1,11 @@
 # HA Person Card (`ha-person-card`)
 
+[![GitHub Release](https://img.shields.io/github/v/release/firstof9/ha-person-card?style=for-the-badge)](https://github.com/firstof9/ha-person-card/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/firstof9/ha-person-card/total?style=for-the-badge)](https://github.com/firstof9/ha-person-card/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/firstof9/ha-person-card/lint.yml?branch=main&label=CI&style=for-the-badge)](https://github.com/firstof9/ha-person-card/actions/workflows/lint.yml)
+[![HACS Badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
+[![License](https://img.shields.io/github/license/firstof9/ha-person-card?style=for-the-badge)](https://github.com/firstof9/ha-person-card/blob/main/LICENSE)
+
 A modern, responsive custom Lovelace person card for Home Assistant. Designed to replace legacy `picture-elements` cards with dynamic state avatars, frame overlays, auto-discovered device sensors (battery, Wi-Fi, drive time, distance), and Home Assistant Section & Grid dashboard resizing support.
 
 ![HA Person Card](https://raw.githubusercontent.com/firstof9/ha-person-card/main/images/preview.png)
@@ -21,7 +27,9 @@ A modern, responsive custom Lovelace person card for Home Assistant. Designed to
 
 ### Method 1: HACS (Recommended)
 
-1. Open **HACS** in your Home Assistant instance.
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=firstof9&repository=ha-person-card&category=plugin)
+
+1. Click the **My Home Assistant** button above, or open **HACS** in your Home Assistant instance.
 2. Click **Frontend** -> **Custom repositories** (top right menu).
 3. Add repository URL: `https://github.com/firstof9/ha-person-card` with Category **Plugin**.
 4. Click **Install**.
